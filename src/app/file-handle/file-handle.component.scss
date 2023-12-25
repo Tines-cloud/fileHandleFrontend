@@ -1,0 +1,224 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 5px;
+    background-color: #ebe9e9;
+  }
+  
+  .btn-class {
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  .btn-class img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .btn-class.active {
+    background-color: #9e9b9a;
+    border: 1px solid #888;
+    border-radius: 50%
+  }
+  
+  .btn-class:hover:not(.active) {
+    background-color: #9e9b9a;
+    border-radius: 50%
+  }
+
+
+  @media screen and (max-width: 600px) {
+    .list-items {
+      border-right: none;
+    }
+  
+    .preview-items {
+      background-color: #f1f1f1; 
+    }
+  }
+
+  .landing-page-main {
+    display: flex;
+    height: calc(100vh - 22vh);
+  }
+    
+  .preview-items {
+    flex: 2;
+    overflow-y: auto; 
+    overflow-x: hidden; 
+    padding: 20px;
+    background-color: #e0e0e0; 
+  }
+
+.buttons-section {
+  display: flex;
+  justify-content: center;
+}
+
+.content-type-btns button.content-btn {
+  margin: 0 10px;
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.empty-message {
+  text-align: center;
+  color: #555;
+}
+
+.cards-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-class {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card-content {
+  width: 300px;
+  margin: 10px;
+}
+
+.card-content-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-image {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-text {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.card-buttons button.card-btn {
+  padding: 10px 20px;
+  background-color: #2ecc71;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.upload-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.upload-btn button.upload-btn {
+  background-color: #2ecc71;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.preview-screen {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.preview-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.preview-buttons button.preview-btn {
+  padding: 10px 20px;
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.list-items {
+  flex: 1;
+  overflow-y: auto; /* Vertical scrollbar for list-items */
+  overflow-x: hidden; /* Hide horizontal scrollbar for list-items */
+  padding: 20px;
+  background-color: #f1f1f1; /* Default background color */
+  display: flex;
+  flex-direction: column; /* Align children vertically */
+  justify-content: flex-start; /* Align children at the start */
+  align-items: center; /* Center children horizontally */
+}
+
+
+/* Styles for no items available message */
+.no-items-message {
+  text-align: center;
+  margin: 20px;
+  font-size: 1.2em;
+  color: #555;
+}
+
+/* Styles for buttons */
+.content-type-btns button {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+/* Style for the active button */
+.content-type-btns .active {
+  background-color: #4CAF50; /* Green background color for active button */
+  color: white; /* White text color for active button */
+  pointer-events: none; /* Disable hover and click for the active button */
+}
+
+/* Hover effect for non-active buttons */
+.content-type-btns button:not(.active):hover {
+  background-color: #ddd; /* Light gray background color on hover */
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center card items horizontally */
+}
+
+.card-class {
+  width: 200px;
+  height: 300px; /* Adjust the height as needed */
+  margin: 10px;
+  overflow-y: auto; /* Vertical scrollbar for card-class */
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.upload-button-div {
+  margin-top: auto; /* Move to the bottom */
+}

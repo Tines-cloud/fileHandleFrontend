@@ -1,0 +1,58 @@
+<div class="header">
+    <div>
+      <button class="btn-class" [ngClass]="{'active': serviceType==='S3'}" [disabled]="serviceType==='S3'" (click)="loadFiles('S3')">
+        <img src="assets/img/logo/S3-Logo.png" alt="S3 Logo">
+      </button>
+      <button class="btn-class"  [ngClass]="{'active': serviceType==='GCP'}" [disabled]="serviceType==='GCP'" (click)="loadFiles('')">
+        <img src="assets/img/logo/GCP-Logo.png" alt="GCP Logo">
+      </button>
+      <button  class="btn-class" (click)="goToHome()">
+        <img src="assets/img/logo/Home-Logo.png" alt="Home Logo">
+      </button>
+    </div>
+  </div>
+
+  <div class="landing-page-main">
+    <div class="list-items">
+      <div class="buttons-section">
+        <div class="content-type-btns">
+          <button class="content-btn">Image</button>
+          <button class="content-btn">Video</button>
+          <button class="content-btn">Audio</button>
+          <button class="content-btn">Document</button>
+        </div>
+      </div>
+      <div class="cards-section">
+        <div *ngIf="items.length === 0" class="empty-message">
+          No items available.
+        </div>
+        <div class="card-class">
+          <mat-card class="card-content" *ngFor="let item of items; index as i;">
+            <div class="card-content-inner">
+              <div class="card-image">
+                <img class="card-img" src="{{ item.url }}" alt="{{ item.fileName }}">
+              </div>
+              <div class="card-text">{{ item.fileName }}</div>
+              <div class="card-buttons">
+                <button class="card-btn">Delete</button>
+                <button class="card-btn">Download</button>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+      <div class="upload-btn">
+        <button class="upload-btn">Upload</button>
+      </div>
+    </div>
+    <div class="preview-items">
+      <div class="preview-screen">
+        <!-- Preview content goes here -->
+      </div>
+      <div class="preview-buttons">
+        <button class="preview-btn">Delete</button>
+        <button class="preview-btn">Download</button>
+      </div>
+    </div>
+  </div>
+  
