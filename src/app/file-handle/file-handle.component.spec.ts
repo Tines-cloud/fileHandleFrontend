@@ -10,8 +10,8 @@ describe('FileHandleComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [FileHandleComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(FileHandleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

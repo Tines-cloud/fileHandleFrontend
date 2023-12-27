@@ -10,8 +10,8 @@ describe('FileUploadComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [FileUploadComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(FileUploadComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

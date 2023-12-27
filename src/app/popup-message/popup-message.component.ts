@@ -7,7 +7,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrl: './popup-message.component.scss'
 })
 export class PopupMessageComponent {
-  constructor(private dialogRef: MatDialogRef<PopupMessageComponent>) {}
+  constructor(private dialogRef: MatDialogRef<PopupMessageComponent>) { }
 
   onConfirm(): void {
     // Perform any logic needed before confirming

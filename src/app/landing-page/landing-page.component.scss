@@ -1,64 +1,63 @@
 .card-class {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 15vh;
-  }
-  
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15vh;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.mat-card {
+  width: 200px;
+  transition: transform 0.3s ease;
+  margin: 10px;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 70vh;
+}
+
+.card-image {
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+  background-color: #e0e0e0;
+  transition: transform 0.3s ease;
+  margin-bottom: 15px !important;
+}
+
+.card-img {
+  width: 90%;
+  height: 80%;
+  padding-left: 5%;
+  padding-top: 10%;
+}
+
+.card-text {
+  font-weight: bold;
+  font-size: 1.2em;
+  background-color: #f0f0f0;
+  padding: 10px;
+  width: 50% !important;
+}
+
+@media screen and (max-width: 600px) {
+
+  .mat-card {
     width: 100%;
   }
-  
-  .mat-card {
-    width: 200px;
-    transition: transform 0.3s ease;
-    margin: 10px;
-  }
-  
-  .card-content {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 70vh;
-  }
-  
-  .card-image {
-    width: 80px;
-    height: 80px;
-    margin-right: 10px;
-    background-color: #e0e0e0;
-    transition: transform 0.3s ease;
-    margin-bottom: 15px !important;
-  }
-  
-  .card-img {
-    width: 90%;
-    height: 80%;
-    padding-left: 5%;
-    padding-top: 10%;
-  }
-  
-  .card-text {
-    font-weight: bold;
-    font-size: 1.2em;
-    background-color: #f0f0f0;
-    padding: 10px;
-    width: 50% !important;
-  }
 
-  @media screen and (max-width: 600px) {
-  
-    .mat-card {
-      width: 100%;
-    }
-  
-    .card-text {
-      width: 100%;
-    }
+  .card-text {
+    width: 100%;
   }
-  
+}

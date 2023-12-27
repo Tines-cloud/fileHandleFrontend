@@ -1,36 +1,33 @@
 <ng-container *ngIf="!showFileUpload">
-    <div class="card-class">
-        <div class="card-container">
-          <mat-card (click)="showFileHandle('S3')" class="card-class">
-            <div class="card-content">
-              <mat-card-content>
-                <div class="card-image">
-                  <img class="card-img" src="assets/img/logo/S3-Logo.png" alt="S3 Logo">
-                </div>
-              </mat-card-content> 
-              <mat-card-content class="card-text">S3 Service</mat-card-content>
+  <div class="card-class">
+    <div class="card-container">
+      <mat-card (click)="showFileHandle('S3')" class="card-class">
+        <div class="card-content">
+          <mat-card-content>
+            <div class="card-image">
+              <img class="card-img" src="assets/img/logo/S3-Logo.png" alt="S3 Logo">
             </div>
-          </mat-card>
-        
-          <mat-card (click)="showFileHandle('GCP')" class="card-class">
-            <div class="card-content">
-              <mat-card-content>
-                <div class="card-image">
-                  <img class="card-img" src="assets/img/logo/GCP-Logo.png" alt="GCP Logo">
-                </div>
-              </mat-card-content>
-              <mat-card-content class="card-text">GCP Service</mat-card-content>
+          </mat-card-content>
+          <mat-card-content class="card-text">S3 Service</mat-card-content>
+        </div>
+      </mat-card>
+
+      <mat-card (click)="showFileHandle('GCP')" class="card-class">
+        <div class="card-content">
+          <mat-card-content>
+            <div class="card-image">
+              <img class="card-img" src="assets/img/logo/GCP-Logo.png" alt="GCP Logo">
             </div>
-          </mat-card>
-        </div></div>
-  </ng-container>
-  
-  <ng-container *ngIf="showFileUpload">
-    <div>
-      <app-file-handle
-      (showFileUpload)="showFileUploadMethod()"
-      [serviceType]="serviceType"
-      ></app-file-handle>
+          </mat-card-content>
+          <mat-card-content class="card-text">GCP Service</mat-card-content>
+        </div>
+      </mat-card>
     </div>
-  </ng-container>
-  
+  </div>
+</ng-container>
+
+<ng-container *ngIf="showFileUpload">
+  <div>
+    <app-file-handle (showFileUpload)="showFileUploadMethod()" [serviceType]="serviceType"></app-file-handle>
+  </div>
+</ng-container>

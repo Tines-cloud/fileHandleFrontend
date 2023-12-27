@@ -171,13 +171,13 @@
 .card-content-inner {
   display: flex;
   flex-direction: row;
-  align-items: center; 
+  align-items: center;
 }
 
 .card-image {
   width: 30px;
   height: 30px;
-  margin: 5px; 
+  margin: 5px;
   background-color: #e0e0e0;
 }
 
@@ -202,7 +202,7 @@
   cursor: pointer;
 }
 
-.card-buttons-div{
+.card-buttons-div {
   margin-left: 10px;
 }
 
@@ -216,14 +216,14 @@
 .card-btn-delete {
   background-color: #e74c3c;
   cursor: pointer;
-  padding: 1px 1px; 
-  font-size: 0.8em; 
+  padding: 1px 1px;
+  font-size: 0.8em;
 }
 
- .card-btn-download {
+.card-btn-download {
   background-color: #3498db;
   cursor: pointer;
-  padding: 1px 1px; 
+  padding: 1px 1px;
 }
 
 /* Delete Button Styles */
@@ -256,7 +256,8 @@ button:hover {
   padding: 10px 20px;
   cursor: pointer;
 }
+
 .card-content-inner.selected {
-  border: 1px solid #000000;  // Adjust the border style as per your design
-  background-color: #203a47;  // Adjust the background color as per your design
+  border: 1px solid #000000; // Adjust the border style as per your design
+  background-color: #203a47; // Adjust the background color as per your design
 }

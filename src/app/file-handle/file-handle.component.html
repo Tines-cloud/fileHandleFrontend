@@ -1,61 +1,65 @@
 <div class="header">
-    <div>
-      <button class="btn-class" [ngClass]="{'active': serviceType==='S3'}" [disabled]="serviceType==='S3'" (click)="loadFiles('S3')">
-        <img src="assets/img/logo/S3-Logo.png" alt="S3 Logo">
-      </button>
-      <button class="btn-class"  [ngClass]="{'active': serviceType==='GCP'}" [disabled]="serviceType==='GCP'" (click)="loadFiles('GCP')">
-        <img src="assets/img/logo/GCP-Logo.png" alt="GCP Logo">
-      </button>
-      <button  class="btn-class" (click)="goToHome()">
-        <img src="assets/img/logo/Home-Logo.png" alt="Home Logo">
-      </button>
-    </div>
+  <div>
+    <button class="btn-class" [ngClass]="{'active': serviceType==='S3'}" [disabled]="serviceType==='S3'"
+      (click)="loadFiles('S3')">
+      <img src="assets/img/logo/S3-Logo.png" alt="S3 Logo">
+    </button>
+    <button class="btn-class" [ngClass]="{'active': serviceType==='GCP'}" [disabled]="serviceType==='GCP'"
+      (click)="loadFiles('GCP')">
+      <img src="assets/img/logo/GCP-Logo.png" alt="GCP Logo">
+    </button>
+    <button class="btn-class" (click)="goToHome()">
+      <img src="assets/img/logo/Home-Logo.png" alt="Home Logo">
+    </button>
   </div>
+</div>
 
-  <div class="landing-page-main">
-    <div class="list-items">
-      <div class="buttons-section">
-        <div class="content-type-btns">
-          <button class="content-btn" [ngClass]="{'active':contentType==='IMAGE'}" [disabled]="contentType==='IMAGE'" (click)="filterByContentType('IMAGE')">Image</button>
-          <button class="content-btn" [ngClass]="{'active':contentType==='VIDEO'}" [disabled]="contentType==='VIDEO'" (click)="filterByContentType('VIDEO')">Video</button>
-          <button class="content-btn" [ngClass]="{'active':contentType==='AUDIO'}" [disabled]="contentType==='AUDIO'" (click)="filterByContentType('AUDIO')">Audio</button>
-          <button class="content-btn" [ngClass]="{'active':contentType==='DOC'}" [disabled]="contentType==='DOC'" (click)="filterByContentType('DOC')">Document</button>
-        </div>
+<div class="landing-page-main">
+  <div class="list-items">
+    <div class="buttons-section">
+      <div class="content-type-btns">
+        <button class="content-btn" [ngClass]="{'active':contentType==='IMAGE'}" [disabled]="contentType==='IMAGE'"
+          (click)="filterByContentType('IMAGE')">Image</button>
+        <button class="content-btn" [ngClass]="{'active':contentType==='VIDEO'}" [disabled]="contentType==='VIDEO'"
+          (click)="filterByContentType('VIDEO')">Video</button>
+        <button class="content-btn" [ngClass]="{'active':contentType==='AUDIO'}" [disabled]="contentType==='AUDIO'"
+          (click)="filterByContentType('AUDIO')">Audio</button>
+        <button class="content-btn" [ngClass]="{'active':contentType==='DOC'}" [disabled]="contentType==='DOC'"
+          (click)="filterByContentType('DOC')">Document</button>
       </div>
-      <div class="cards-section">
-        <div *ngIf="items.length === 0" class="empty-message">
-          No items available.
-        </div>
-        <div class="card-class">
-          <mat-card class="card-content" *ngFor="let item of items; index as i;">
-            <div class="card-content-inner" [class.selected]="item === selectedFile">
-              <div class="card-image">
-                <img class="card-img" src="{{ 'assets/img/content/'+contentType+'.png' }}" alt="{{ item.fileName }}">
-              </div>
-              <div class="card-text-div" (click)="selectItem(item)"><span class="card-text">{{ item.fileName }}</span></div>
-              <div class="card-buttons-div">
-                <div class="card-buttons">
-                  <button class="card-btn-delete" (click)="onDelete(item)"><mat-icon>delete</mat-icon>
-                  </button>
-                  <button class="card-btn-download" (click)="onDownload(item)"><mat-icon>download</mat-icon></button>
-                </div>
+    </div>
+    <div class="cards-section">
+      <div *ngIf="items.length === 0" class="empty-message">
+        No items available.
+      </div>
+      <div class="card-class">
+        <mat-card class="card-content" *ngFor="let item of items; index as i;">
+          <div class="card-content-inner" [class.selected]="item === selectedFile">
+            <div class="card-image">
+              <img class="card-img" src="{{ 'assets/img/content/'+contentType+'.png' }}" alt="{{ item.fileName }}">
+            </div>
+            <div class="card-text-div" (click)="selectItem(item)"><span class="card-text">{{ item.fileName }}</span>
+            </div>
+            <div class="card-buttons-div">
+              <div class="card-buttons">
+                <button class="card-btn-delete" (click)="onDelete(item)"><mat-icon>delete</mat-icon>
+                </button>
+                <button class="card-btn-download" (click)="onDownload(item)"><mat-icon>download</mat-icon></button>
               </div>
             </div>
-          </mat-card>
-        </div>
-      </div>
-      <div class="upload-btn">
-        <button class="upload-btn" (click)="uploadFile()">Upload</button>
+          </div>
+        </mat-card>
       </div>
     </div>
-    <div class="preview-items">
-      <div class="preview-screen">
-        <div>
-<app-file-preview
-[selectedFile]="selectedFile"
-></app-file-preview>
-        </div>
+    <div class="upload-btn">
+      <button class="upload-btn" (click)="uploadFile()">Upload</button>
+    </div>
+  </div>
+  <div class="preview-items">
+    <div class="preview-screen">
+      <div>
+        <app-file-preview [selectedFile]="selectedFile"></app-file-preview>
       </div>
     </div>
   </div>
-  
+</div>

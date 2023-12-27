@@ -10,8 +10,8 @@ describe('FilePreviewComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [FilePreviewComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(FilePreviewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

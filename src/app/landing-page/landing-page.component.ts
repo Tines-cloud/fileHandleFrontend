@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { ServiceType } from '../core/enums/service-type';
 import { FileHandleComponent } from '../file-handle/file-handle.component';
 import { NgIf } from '@angular/common';
@@ -9,11 +9,11 @@ import { NgIf } from '@angular/common';
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.scss',
   standalone: true,
-  imports: [MatCardModule,FileHandleComponent,NgIf],
+  imports: [MatCardModule, FileHandleComponent, NgIf],
 })
 export class LandingPageComponent {
 
-  serviceType:ServiceType | undefined;
+  serviceType: ServiceType | undefined;
   showFileUpload: boolean = false;
 
   showFileHandle(str: string) {
@@ -24,9 +24,9 @@ export class LandingPageComponent {
       this.serviceType = ServiceType.GCP;
     }
 
-}
+  }
 
-showFileUploadMethod() {
-  this.showFileUpload=false;
+  showFileUploadMethod() {
+    this.showFileUpload = false;
   }
 }

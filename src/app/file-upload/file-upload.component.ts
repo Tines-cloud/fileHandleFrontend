@@ -12,20 +12,20 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class FileUploadComponent {
 
   @ViewChild('fileInput') fileInput!: ElementRef;
-  
+
   @Output() closeModal = new EventEmitter<void>();
   uploadedFile: File | null = null;
-  previewImage:any;
-  previewVideo:any;
-  previewAudio:any;
+  previewImage: any;
+  previewVideo: any;
+  previewAudio: any;
 
-  contentType:any;
-  serviceType:any;
+  contentType: any;
+  serviceType: any;
 
-imageFileExtensions: string[] = ['jpg', 'jpeg', 'png', 'gif', 'bmp'];
-videoFileExtensions: string[] = ['mp4', 'avi', 'mkv', 'mov'];
-audioFileExtensions: string[] = ['mp3', 'wav', 'ogg'];
-documentFileExtensions: string[] = ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx'];
+  imageFileExtensions: string[] = ['jpg', 'jpeg', 'png', 'gif', 'bmp'];
+  videoFileExtensions: string[] = ['mp4', 'avi', 'mkv', 'mov'];
+  audioFileExtensions: string[] = ['mp3', 'wav', 'ogg'];
+  documentFileExtensions: string[] = ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx'];
 
 
   // Inject data from the dialog
@@ -34,8 +34,8 @@ documentFileExtensions: string[] = ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 
     @Inject(MAT_DIALOG_DATA) public data: { contentType: string; serviceType: string },
     private fileService: FileService
   ) {
-    this.serviceType=data.serviceType;
-    this.contentType=data.contentType;
+    this.serviceType = data.serviceType;
+    this.contentType = data.contentType;
   }
 
   onFileSelected(event: any) {
@@ -84,16 +84,16 @@ documentFileExtensions: string[] = ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 
   }
   uploadFile(): void {
     if (this.uploadedFile) {
-      this.fileService.uploadFile(this.uploadedFile,this.serviceType,this.contentType).subscribe(
+      this.fileService.uploadFile(this.uploadedFile, this.serviceType, this.contentType).subscribe(
         {
-            next: (response) => {
-              console.log('File uploaded successfully:', response);
-              this.dialogRef.close(true);
-            },
-            error: (error) => {
-              console.error('Error uploading file:', error);
-              // Handle the error, e.g., display an error message
-            }
+          next: (response) => {
+            console.log('File uploaded successfully:', response);
+            this.dialogRef.close(true);
+          },
+          error: (error) => {
+            console.error('Error uploading file:', error);
+            // Handle the error, e.g., display an error message
+          }
         }
       );
     } else {
@@ -102,16 +102,16 @@ documentFileExtensions: string[] = ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 
     }
   }
 
-  generateAcceptAttribute() : string {
-    if(this.contentType===ContentType.IMAGE){
+  generateAcceptAttribute(): string {
+    if (this.contentType === ContentType.IMAGE) {
       return this.imageFileExtensions.map(ext => `.${ext}`).join(',');
-    }else  if(this.contentType===ContentType.AUDIO){
+    } else if (this.contentType === ContentType.AUDIO) {
       return this.audioFileExtensions.map(ext => `.${ext}`).join(',');
-    }else  if(this.contentType===ContentType.VIDEO){
+    } else if (this.contentType === ContentType.VIDEO) {
       return this.videoFileExtensions.map(ext => `.${ext}`).join(',');
-    }else  if(this.contentType===ContentType.DOC){
+    } else if (this.contentType === ContentType.DOC) {
       return this.documentFileExtensions.map(ext => `.${ext}`).join(',');
     }
-   return '';
+    return '';
   }
 }

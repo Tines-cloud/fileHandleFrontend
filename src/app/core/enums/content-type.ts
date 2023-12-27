@@ -1,4 +1,4 @@
-export enum ContentType{
+export enum ContentType {
     DOC = 'DOC',
     AUDIO = 'AUDIO',
     IMAGE = 'IMAGE',
