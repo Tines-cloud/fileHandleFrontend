@@ -1,7 +1,25 @@
-<form (ngSubmit)="onSubmit()" #uploadForm="ngForm">
-    <input type="file" (change)="onFileSelected($event)" />
-    <button type="submit">Upload</button>
-  </form>
+<div class="upload-modal-container">
+  <div class="upload-header">
+    <h2>Upload File</h2>
+    <button class="close-btn" (click)="closeUploadModal()">×</button>
+  </div>
   
-
-  <app-file-list></app-file-list>
+  <div class="upload-content">
+    <div class="preview-screen">
+      <img *ngIf="previewImage" [src]="previewImage" alt="Preview Image" class="preview-image">
+    
+      <video *ngIf="previewVideo" [src]="previewVideo" controls class="preview-video"></video>
+    
+      <audio *ngIf="previewAudio" [src]="previewAudio" controls class="preview-audio"></audio>
+    </div>
+    
+    
+    <input #fileInput type="file" (change)="onFileSelected($event)"  [accept]="generateAcceptAttribute()" />
+    <div class="modal-btns"> 
+       <button class="upload-btn" (click)="uploadFile()">Upload</button>
+    
+      <!-- Remove button for removing uploaded file -->
+      <button class="remove-btn" *ngIf="uploadedFile" (click)="removeFile()">Remove</button></div>
+  
+  </div>
+</div>

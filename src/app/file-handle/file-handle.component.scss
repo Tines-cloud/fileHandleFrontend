@@ -1,65 +1,68 @@
 .header {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: flex-start;
-    padding: 5px;
-    background-color: #ebe9e9;
-  }
-  
-  .btn-class {
-    width: 30px;
-    height: 30px;
-    margin-left: 5px;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-  }
-  
-  .btn-class img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-  
-  .btn-class.active {
-    background-color: #9e9b9a;
-    border: 1px solid #888;
-    border-radius: 50%
-  }
-  
-  .btn-class:hover:not(.active) {
-    background-color: #9e9b9a;
-    border-radius: 50%
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 5px;
+  background-color: #ebe9e9;
+}
+
+.btn-class {
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.btn-class img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.btn-class.active {
+  background-color: #9e9b9a;
+  border: 1px solid #888;
+  border-radius: 50%;
+}
+
+.btn-class:hover:not(.active) {
+  background-color: #9e9b9a;
+  border-radius: 50%;
+}
+
+/* Media Queries */
+@media screen and (max-width: 600px) {
+  .list-items {
+    border-right: none;
   }
 
-
-  @media screen and (max-width: 600px) {
-    .list-items {
-      border-right: none;
-    }
-  
-    .preview-items {
-      background-color: #f1f1f1; 
-    }
-  }
-
-  .landing-page-main {
-    display: flex;
-    height: calc(100vh - 22vh);
-  }
-    
   .preview-items {
-    flex: 2;
-    overflow-y: auto; 
-    overflow-x: hidden; 
-    padding: 20px;
-    background-color: #e0e0e0; 
+    background-color: #f1f1f1;
   }
+}
 
+/* Landing Page Styles */
+.landing-page-main {
+  display: flex;
+  height: calc(100vh - 22vh);
+}
+
+.preview-items {
+  flex: 2;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px;
+  background-color: #e0e0e0;
+}
+
+/* Buttons Section Styles */
 .buttons-section {
   display: flex;
   justify-content: center;
+  margin-top: 10px;
 }
 
 .content-type-btns button.content-btn {
@@ -76,75 +79,8 @@
   color: #555;
 }
 
-.cards-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-.card-class {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.card-content {
-  width: 300px;
-  margin: 10px;
-}
-
-.card-content-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.card-image {
-  width: 100%;
-  height: 150px;
-  overflow: hidden;
-}
-
-.card-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.card-text {
-  font-weight: bold;
-  font-size: 1.2em;
-  margin-top: 10px;
-}
-
-.card-buttons {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 10px;
-}
-
-.card-buttons button.card-btn {
-  padding: 10px 20px;
-  background-color: #2ecc71;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-.upload-btn {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 20px;
-}
-
-.upload-btn button.upload-btn {
-  background-color: #2ecc71;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
+/* Preview Section Styles */
 .preview-screen {
   width: 70%;
   margin: 0 auto;
@@ -163,20 +99,19 @@
   border: none;
   cursor: pointer;
 }
+
+/* List Items Styles */
 .list-items {
   flex: 1;
-  overflow-y: auto; /* Vertical scrollbar for list-items */
-  overflow-x: hidden; /* Hide horizontal scrollbar for list-items */
-  padding: 20px;
-  background-color: #f1f1f1; /* Default background color */
-  display: flex;
-  flex-direction: column; /* Align children vertically */
-  justify-content: flex-start; /* Align children at the start */
-  align-items: center; /* Center children horizontally */
+  background-color: #f1f1f1;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 35vh;
 }
 
-
-/* Styles for no items available message */
+/* No Items Message Styles */
 .no-items-message {
   text-align: center;
   margin: 20px;
@@ -184,7 +119,7 @@
   color: #555;
 }
 
-/* Styles for buttons */
+/* Content Type Button Styles */
 .content-type-btns button {
   padding: 10px;
   margin: 5px;
@@ -192,33 +127,136 @@
   cursor: pointer;
 }
 
-/* Style for the active button */
-.content-type-btns .active {
-  background-color: #4CAF50; /* Green background color for active button */
-  color: white; /* White text color for active button */
-  pointer-events: none; /* Disable hover and click for the active button */
+/* Active Button Styles */
+.content-type-btns button.active {
+  background-color: #0370ff;
+  color: white;
+  pointer-events: none;
 }
 
-/* Hover effect for non-active buttons */
+/* Hover Effect for Non-Active Buttons */
 .content-type-btns button:not(.active):hover {
-  background-color: #ddd; /* Light gray background color on hover */
+  background-color: #1b8ce3;
 }
 
+/* Card Container Styles */
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Center card items horizontally */
+  justify-content: center;
 }
 
+/* Individual Card Styles */
 .card-class {
-  width: 200px;
-  height: 300px; /* Adjust the height as needed */
+  width: 90%;
+  height: 300px;
   margin: 10px;
-  overflow-y: auto; /* Vertical scrollbar for card-class */
+  overflow-y: auto;
   border: 1px solid #ccc;
   padding: 10px;
 }
 
-.upload-button-div {
-  margin-top: auto; /* Move to the bottom */
+.cards-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-content {
+  width: 60vh;
+  margin: 10px;
+  height: max-content;
+}
+
+.card-content-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+}
+
+.card-image {
+  width: 30px;
+  height: 30px;
+  margin: 5px; 
+  background-color: #e0e0e0;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-text-div {
+  background-color: #f0f0f0;
+  white-space: nowrap;
+  width: 40vh;
+}
+
+.card-text {
+  font-weight: bold;
+  font-size: 0.8em;
+  text-overflow: ellipsis;
+  margin-left: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.card-buttons-div{
+  margin-left: 10px;
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 10px;
+}
+
+.card-btn-delete {
+  background-color: #e74c3c;
+  cursor: pointer;
+  padding: 1px 1px; 
+  font-size: 0.8em; 
+}
+
+ .card-btn-download {
+  background-color: #3498db;
+  cursor: pointer;
+  padding: 1px 1px; 
+}
+
+/* Delete Button Styles */
+button.delete-btn {
+  background-color: #e74c3c;
+  cursor: pointer;
+}
+
+/* Download Button Styles */
+button.download-btn {
+  background-color: #3498db;
+  cursor: pointer;
+}
+
+/* Hover Effect for Buttons */
+button:hover {
+  filter: brightness(1.5);
+}
+
+.upload-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px;
+}
+
+.upload-btn button.upload-btn {
+  background-color: #2ecc71;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.card-content-inner.selected {
+  border: 1px solid #000000;  // Adjust the border style as per your design
+  background-color: #203a47;  // Adjust the background color as per your design
 }

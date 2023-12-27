@@ -1,1 +1,35 @@
-<p>file-preview works!</p>
+<div class="file-preview-container" *ngIf="selectedFile; else previewNotAvailable">
+    <ng-container *ngIf="selectedFile.contentType === 'IMAGE'; else audioVideoPdfPreview">
+      <!-- Image Preview -->
+      <img [src]="selectedFile.url" alt="{{ selectedFile.fileName }}" class="preview-image">
+    </ng-container>
+    <ng-template #audioVideoPdfPreview>
+      <!-- Audio, Video, or PDF Preview -->
+      <div class="unsupported-preview">
+        <ng-container *ngIf="selectedFile.contentType === 'VIDEO'">
+          <!-- Video Preview -->
+          <video [src]="selectedFile.url" controls class="preview-video"></video>
+        </ng-container>
+  
+        <ng-container *ngIf="selectedFile.contentType === 'AUDIO'">
+          <!-- Audio Preview -->
+          <audio [src]="selectedFile.url" controls class="preview-audio"></audio>
+        </ng-container>
+  
+        <ng-container *ngIf="selectedFile.contentType === 'DOC'">
+          <!-- PDF Preview (if applicable) -->
+          <div class="preview-message">
+            <p>This file type is not supported for preview.</p>
+          </div>
+        </ng-container>
+      </div>
+    </ng-template>
+  </div>
+  
+  <ng-template #previewNotAvailable>
+    <!-- Preview Not Available Message -->
+    <div class="preview-not-available-message">
+      <p>Preview not available for the selected file.</p>
+    </div>
+  </ng-template>
+  
