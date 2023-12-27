@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FileUploadComponent } from './file-upload.component';
 
+import { GlobalSpinnerComponent } from './global-spinner.component';
 
-describe('FileUploadComponent', () => {
-  let component: FileUploadComponent;
-  let fixture: ComponentFixture<FileUploadComponent>;
+describe('GlobalSpinnerComponent', () => {
+  let component: GlobalSpinnerComponent;
+  let fixture: ComponentFixture<GlobalSpinnerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FileUploadComponent]
+      declarations: [GlobalSpinnerComponent]
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(FileUploadComponent);
+    fixture = TestBed.createComponent(GlobalSpinnerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

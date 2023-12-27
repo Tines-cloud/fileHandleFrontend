@@ -4,12 +4,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { ServiceType } from '../core/enums/service-type';
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { FileInfo } from '../core/modal/file-info';
-import { FileService } from '../core/service/file.service';
 import { ContentType } from '../core/enums/content-type';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogService } from '../core/service/confirmation-dialog-service';
 import { FilePreviewComponent } from '../file-preview/file-preview.component';
+import { FileService } from '../core/service/file.service';
 import { FileUploadComponent } from '../file-upload/file-upload.component';
+import { SpinnerService } from '../core/service/spinner-service';
 
 @Component({
   selector: 'app-file-handle',
@@ -32,6 +33,7 @@ export class FileHandleComponent implements OnInit {
   constructor(
     private fileService: FileService,
     public dialog: MatDialog,
+    private spinnerService: SpinnerService,
     private confirmationDialogService: ConfirmationDialogService) { }
   ngOnInit(): void {
     this.getFiles(this.serviceType);
@@ -53,6 +55,7 @@ export class FileHandleComponent implements OnInit {
   }
 
   getFiles(serviceType: ServiceType) {
+    this.spinnerService.show();
     this.selectedFile = undefined;
     this.files = [];
     this.items = [];
@@ -62,6 +65,7 @@ export class FileHandleComponent implements OnInit {
         this.filterItems(this.contentType, this.files)
       },
       error: (error) => {
+        this.spinnerService.hide();
         console.error('Error fetching files:', error);
         // Handle the error, e.g., display an error message
       }
@@ -88,18 +92,19 @@ export class FileHandleComponent implements OnInit {
 
   filterItems(contentType: ContentType, files: FileInfo[]) {
     this.items = files.filter(file => file.contentType === contentType);
+    this.spinnerService.hide();
   }
 
   onDownload(file: FileInfo) {
     this.confirmationDialogService.openConfirmationDialog().subscribe((confirmed) => {
-      console.log(confirmed);
       if (confirmed) {
-        console.log(confirmed);
+        this.spinnerService.show();
         this.fileService.downloadFile(file.fileName, this.serviceType, file.contentType).subscribe({
           next: (data) => {
             this.downloadFileBlob(data, file.fileName);
           },
           error: (error) => {
+            this.spinnerService.hide();
             console.error('Error downloading file:', error);
             // Handle the error, e.g., display an error message
           }
@@ -117,24 +122,20 @@ export class FileHandleComponent implements OnInit {
     document.body.appendChild(downloadLink);
     downloadLink.click();
     document.body.removeChild(downloadLink);
+    this.spinnerService.hide();
   }
 
   onDelete(file: FileInfo) {
     this.confirmationDialogService.openConfirmationDialog().subscribe((confirmed) => {
-      console.log(confirmed);
       if (confirmed) {
-
-
+        this.spinnerService.show();
         this.fileService.deleteFile(file.fileName, this.serviceType, file.contentType).subscribe(
           {
             next: () => {
-              console.log('File deleted successfully');
-              // Optionally, you can update the file list or perform other actions
               this.getFiles(this.serviceType);
             },
             error: (error) => {
               console.error('Error deleting file:', error);
-              // Handle the error, e.g., display an error message
             }
           }
         );
@@ -143,8 +144,9 @@ export class FileHandleComponent implements OnInit {
   }
 
   selectItem(file: FileInfo) {
+    this.spinnerService.show();
     this.selectedFile = file;
-    console.log(file)
+    this.spinnerService.hide();
   }
 
   uploadFile() {

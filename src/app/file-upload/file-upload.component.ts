@@ -3,6 +3,7 @@ import { FileService } from '../core/service/file.service';
 import { ContentType } from '../core/enums/content-type';
 import { ServiceType } from '../core/enums/service-type';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { SpinnerService } from '../core/service/spinner-service';
 
 @Component({
   selector: 'app-file-upload',
@@ -32,7 +33,8 @@ export class FileUploadComponent {
   constructor(
     public dialogRef: MatDialogRef<FileUploadComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { contentType: string; serviceType: string },
-    private fileService: FileService
+    private fileService: FileService,
+    private spinnerService: SpinnerService
   ) {
     this.serviceType = data.serviceType;
     this.contentType = data.contentType;
@@ -84,10 +86,11 @@ export class FileUploadComponent {
   }
   uploadFile(): void {
     if (this.uploadedFile) {
+      this.spinnerService.show();
       this.fileService.uploadFile(this.uploadedFile, this.serviceType, this.contentType).subscribe(
         {
           next: (response) => {
-            console.log('File uploaded successfully:', response);
+            this.spinnerService.hide();
             this.dialogRef.close(true);
           },
           error: (error) => {
