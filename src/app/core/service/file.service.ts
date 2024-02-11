@@ -9,7 +9,9 @@ import { ContentType } from '../enums/content-type';
 })
 export class FileService {
 
-  private baseUrl = 'http://localhost:8080/file-handle';
+  backendAddress="http://34.144.223.123";
+
+  private baseUrl = `${this.backendAddress}`+'/file-handle';
 
   constructor(private http: HttpClient) { }
 

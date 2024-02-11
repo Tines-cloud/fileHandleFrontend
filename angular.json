@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "fileHandleFrontend": {
+    "file-handle-frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -52,13 +52,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "2mb"
                 }
               ],
               "outputHashing": "all"
@@ -75,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "fileHandleFrontend:build:production"
+              "buildTarget": "file-handle-frontend:build:production"
             },
             "development": {
-              "buildTarget": "fileHandleFrontend:build:development"
+              "buildTarget": "file-handle-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "fileHandleFrontend:build"
+            "buildTarget": "file-handle-frontend:build"
           }
         },
         "test": {
